@@ -35,11 +35,6 @@ const CountryScores = props => {
         <div className="card m-2" style={{ width: "100%" }}>
           <div className="card-header bg-info  text-center">
             <strong>HIGH SCORES: {score.name}</strong>
-            {toggle ? (
-              <button onClick={sortDeScores}> Sort DE Scores</button>
-            ) : (
-              <button onClick={sortAcScores}> Sort AC Scores</button>
-            )}
           </div>
 
           <ul className="list-group list-group-flush">
@@ -59,6 +54,11 @@ const CountryScores = props => {
   return (
     <div className="container text-center border ">
       <h1> High Scores Per Country</h1>
+      {toggle ? (
+        <button onClick={sortDeScores}> Sorting DE Scores</button>
+      ) : (
+        <button onClick={sortAcScores}> Sort AC Scores</button>
+      )}
 
       <div className="row p-3 m-3 ">{scoresCountry}</div>
     </div>
