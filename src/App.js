@@ -4,6 +4,10 @@ import CountryScores from "./CountryScores";
 import allCountryScores from "./scores.js";
 
 const App = () => {
-  return <CountryScores scores={allCountryScores} />;
+  return (
+    <div>
+      <CountryScores scores={allCountryScores} />
+    </div>
+  );
 };
 export default App;
