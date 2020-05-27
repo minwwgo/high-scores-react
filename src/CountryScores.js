@@ -9,6 +9,7 @@ const CountryScores = props => {
     return aName < bName ? -1 : aName > bName ? 1 : 0;
   });
   scores.map(e => {
+    console.log(e);
     e.scores.sort((a, b) => Number(b.s) - Number(a.s));
   });
 
