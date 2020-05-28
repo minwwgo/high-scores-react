@@ -3,17 +3,18 @@ import SortButton from "./SortButton";
 import ContainerCountryScores from "./ContainerCountryScores";
 
 const CountryScores = props => {
+  //destruction
   const { scores } = props;
-
+  // assign value
   const [value, setValue] = useState(scores);
   const [buttonToggle, setButtonToggle] = useState(true);
-
+  // sort country name
   scores.sort((a, b) => {
     const aName = a.name.toLowerCase();
     const bName = b.name.toLowerCase();
     return aName < bName ? -1 : aName > bName ? 1 : 0;
   });
-
+  // sort descending scores
   const sortDeScores = () => {
     setButtonToggle(false);
     setValue(
@@ -22,6 +23,7 @@ const CountryScores = props => {
       })
     );
   };
+  //sort ascending scores
   const sortAcScores = () => {
     setButtonToggle(true);
     setValue(
