@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SortButton from "./SortButton";
 import ContainerCountryScores from "./ContainerCountryScores";
+import WorldScore from "./WorldScore";
 
 const CountryScores = props => {
   //destruction
@@ -42,6 +43,7 @@ const CountryScores = props => {
         sortAcScores={sortAcScores}
         buttonToggle={buttonToggle}
       />
+      <WorldScore scores={scores} />
       <ContainerCountryScores scores={scores} />
     </div>
   );
