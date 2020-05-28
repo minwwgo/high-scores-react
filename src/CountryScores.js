@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import SortButton from "./SortButton";
+import ContainerCountryScores from "./ContainerCountryScores";
 
 const CountryScores = props => {
   const { scores } = props;
 
   const [value, setValue] = useState(scores);
-  const [toggle, setToggle] = useState(true);
+  const [buttonToggle, setButtonToggle] = useState(true);
 
   scores.sort((a, b) => {
     const aName = a.name.toLowerCase();
@@ -13,7 +15,7 @@ const CountryScores = props => {
   });
 
   const sortDeScores = () => {
-    setToggle(false);
+    setButtonToggle(false);
     setValue(
       scores.map(score => {
         return score.scores.sort((a, b) => Number(a.s) - Number(b.s));
@@ -21,7 +23,7 @@ const CountryScores = props => {
     );
   };
   const sortAcScores = () => {
-    setToggle(true);
+    setButtonToggle(true);
     setValue(
       scores.map(score => {
         return score.scores.sort((a, b) => Number(b.s) - Number(a.s));
@@ -29,38 +31,16 @@ const CountryScores = props => {
     );
   };
 
-  const scoresCountry = scores.map(score => {
-    return (
-      <div className="col-12  border d-flex m-2">
-        <div className="card m-2" style={{ width: "100%" }}>
-          <div className="card-header bg-info  text-center">
-            <strong>HIGH SCORES: {score.name}</strong>
-          </div>
-
-          <ul className="list-group list-group-flush">
-            {score.scores.map(scoreEach => {
-              return (
-                <li className="list-group-item d-flex justify-content-around ">
-                  <span>{scoreEach.n}</span>
-                  <span>{scoreEach.s}</span>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
-    );
-  });
   return (
     <div className="container text-center border ">
       <h1> High Scores Per Country</h1>
-      {toggle ? (
-        <button onClick={sortDeScores}> Sorting DE Scores</button>
-      ) : (
-        <button onClick={sortAcScores}> Sort AC Scores</button>
-      )}
 
-      <div className="row p-3 m-3 ">{scoresCountry}</div>
+      <SortButton
+        sortDeScores={sortDeScores}
+        sortAcScores={sortAcScores}
+        buttonToggle={buttonToggle}
+      />
+      <ContainerCountryScores scores={scores} />
     </div>
   );
 };
