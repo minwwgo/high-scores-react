@@ -3,7 +3,7 @@ import React from "react";
 const ContainerCountryScores = props => {
   return (
     <div className="row p-3 m-3 ">
-      {props.scores.map((score, index) => {
+      {props.sortedScores.map((score, index) => {
         return (
           <div key={index} className="col-12  border d-flex m-2">
             <div className="card m-2" style={{ width: "100%" }}>

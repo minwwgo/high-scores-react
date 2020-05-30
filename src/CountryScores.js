@@ -10,7 +10,7 @@ const CountryScores = props => {
   const [value, setValue] = useState(scores);
   const [buttonToggle, setButtonToggle] = useState(true);
   // sort country name
-  scores.sort((a, b) => {
+  const sortedScores = scores.sort((a, b) => {
     const aName = a.name.toLowerCase();
     const bName = b.name.toLowerCase();
     return aName < bName ? -1 : aName > bName ? 1 : 0;
@@ -36,6 +36,7 @@ const CountryScores = props => {
 
   return (
     <div className="container text-center border ">
+      <WorldScore scores={scores} />
       <h1> High Scores Per Country</h1>
 
       <SortButton
@@ -43,8 +44,8 @@ const CountryScores = props => {
         sortAcScores={sortAcScores}
         buttonToggle={buttonToggle}
       />
-      <WorldScore scores={scores} />
-      <ContainerCountryScores scores={scores} />
+
+      <ContainerCountryScores sortedScores={sortedScores} />
     </div>
   );
 };
