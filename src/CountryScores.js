@@ -3,7 +3,7 @@ import SortButton from "./SortButton";
 import ContainerCountryScores from "./ContainerCountryScores";
 import WorldScore from "./WorldScore";
 
-const CountryScores = props => {
+const CountryScores = (props) => {
   //destruction
   const { scores } = props;
   // assign value
@@ -19,7 +19,7 @@ const CountryScores = props => {
   const sortDeScores = () => {
     setButtonToggle(false);
     setValue(
-      scores.map(score => {
+      scores.map((score) => {
         return score.scores.sort((a, b) => Number(a.s) - Number(b.s));
       })
     );
@@ -28,7 +28,7 @@ const CountryScores = props => {
   const sortAcScores = () => {
     setButtonToggle(true);
     setValue(
-      scores.map(score => {
+      scores.map((score) => {
         return score.scores.sort((a, b) => Number(b.s) - Number(a.s));
       })
     );
